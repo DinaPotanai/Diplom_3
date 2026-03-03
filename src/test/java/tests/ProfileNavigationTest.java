@@ -27,7 +27,6 @@ public class ProfileNavigationTest extends BaseTest {
     private LoginPage loginPage;
     private ProfilePage profilePage;
     private User user;
-    private String token;
 
     @BeforeEach
     public void setUp() {
@@ -39,10 +38,6 @@ public class ProfileNavigationTest extends BaseTest {
         // Создаем пользователя через API
         user = User.random();
         steps.register(user).statusCode(HTTP_OK);
-
-        // Авторизация
-        token = steps.login(new LoginRequest(user.getEmail(), user.getPassword()))
-                .extract().path("accessToken");
 
         // Открываем главную страницу
         driver.get(BASE_TEST_URL);

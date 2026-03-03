@@ -78,7 +78,6 @@ public class RegistrationTest extends BaseTest {
         registerPage.clickRegisterButton();
 
         // Появляется ошибка "Некорректный пароль"
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         assertThat(registerPage.isErrorVisible(), is(true));
         assertThat(registerPage.getErrorText(), containsString("Некорректный пароль"));
     }
